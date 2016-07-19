@@ -15,7 +15,9 @@
     <div class="span6">
       {{template "flash.html" .}}
       <form action="/Sample/Hello" method="get">
-        <input type="text" name="myName">
+        {{with $field := field "myName" .}}
+          <input type="text" name="{{$field.Name}}" value="{{$field.Flash}}"><br>
+        {{end}}
         <input type="submit" value="Say Hello">
       </form>
     </div>
